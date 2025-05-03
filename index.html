@@ -38,4 +38,57 @@
         <p>Контакти: chipsikgg23@gmail.com | Тел: +380680665186</p>
     </footer>
 </body>
+	<div id="glitchText" style="
+    background: linear-gradient(135deg, #8b0000, #2c0000);
+    padding: 20px 40px;
+    border-radius: 25px;
+    width: fit-content;
+    font-size: 30px;
+    font-family: 'Courier New', monospace;
+    box-shadow: 0 0 25px rgba(255, 0, 0, 0.7);
+    letter-spacing: 2px;
+    margin: 60px auto;
+    text-align: center;
+    animation: glow 4s infinite linear;
+    color: white;
+">
+    <span class="glitchSpan">By 70WS TEAM</span><br>
+    <span class="glitchSpan">( Данил )</span>
+</div>
+
+<style>
+    @keyframes glow {
+        0%   { color: #00ff00; text-shadow: 0 0 10px #00ff00; }
+        25%  { color: #00ffff; text-shadow: 0 0 10px #00ffff; }
+        50%  { color: #ff00ff; text-shadow: 0 0 10px #ff00ff; }
+        75%  { color: #ffff00; text-shadow: 0 0 10px #ffff00; }
+        100% { color: #00ff00; text-shadow: 0 0 10px #00ff00; }
+    }
+</style>
+
+<script>
+    const spans = document.querySelectorAll(".glitchSpan");
+    const symbols = "!@#$%^&*";
+
+    spans.forEach(span => {
+        const originalText = span.textContent;
+
+        function glitchOnce() {
+            let textArray = originalText.split("");
+            const index = Math.floor(Math.random() * textArray.length);
+            const originalChar = textArray[index];
+            const randomSymbol = symbols[Math.floor(Math.random() * symbols.length)];
+
+            textArray[index] = randomSymbol;
+            span.textContent = textArray.join("");
+
+            setTimeout(() => {
+                textArray[index] = originalChar;
+                span.textContent = textArray.join("");
+            }, 100);
+        }
+
+        setInterval(glitchOnce, 150);
+    });
+</script>
 </html>
